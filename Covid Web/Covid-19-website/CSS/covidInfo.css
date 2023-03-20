@@ -1,0 +1,139 @@
+#covidInfo a {
+    color: rgb(3, 204, 194);
+
+    overflow-x: hidden;
+
+}
+
+#covidInfo a:hover {
+    color: rgb(226, 188, 0);
+
+    overflow-x: hidden;
+
+}
+
+#pcovidInfo:hover {
+    background-color: rgb(0, 140, 255);
+
+
+    overflow-x: hidden;
+
+}
+
+#pcovidInfo {
+    background-color: rgb(0, 4, 255);
+
+    overflow-x: hidden;
+
+}
+
+
+* {
+    /* overflow-x: hidden; */
+}
+
+body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+section{
+    overflow-x: hidden;
+
+}
+section h1 {
+    text-align: center;
+    padding: 10px;
+    color: darkblue;
+    font-size: 3rem;
+    overflow-x: hidden;
+
+
+}
+
+section p {
+    text-align: center;
+    padding: 20px;
+    font-size: 17px;
+    font-family: 'Varela Round', sans-serif;
+    overflow-x: hidden;
+}
+
+section h2 {
+    padding: 10px;
+    color: darkviolet;
+    font-size: 2rem;
+    overflow-x: hidden;
+
+}
+
+section h3 {
+    padding: 15px;
+    color: blue;
+    font-size: 1.5rem;
+    overflow-x: hidden;
+}
+
+section h4 {
+    padding: 15px;
+    font-family: 'Asap', sans-serif;
+    overflow-x: hidden;
+
+}
+
+section button {
+    background-color: black;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid black;
+    overflow-x: hidden;
+}
+
+section button>a {
+    color: white;
+    padding: 10px 10px;
+
+    font-size: 20px;
+    text-decoration: none;
+    overflow-x: hidden;
+}
+
+section button:hover {
+    background-color: white;
+    color: black;
+    overflow-x: hidden;
+}
+
+section button>a:hover {
+    font-size: 22px;
+    color: black;
+    overflow-x: hidden;
+}
+
+section li {
+    padding: 10px 5px;
+    margin: 0px 30px;
+    font-family: 'Asap', sans-serif;
+    overflow-x: hidden;
+}
+
+section p>a {
+    text-decoration: none;
+    overflow-x: hidden;
+}
+
+section p>a:hover {
+    text-decoration: underline;
+    overflow-x: hidden;
+}
+
+section img {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+section a{
+    overflow-x: hidden;
+
+}

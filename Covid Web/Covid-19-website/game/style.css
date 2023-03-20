@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=KoHo:ital,wght@1,600&display=swap');
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body
+{
+background-image: url('snake.jpg');
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  position: absolute;
+  display: flex;
+  align-items: center;
+justify-content: center;
+
+}
+
+#box
+{
+    margin-top: 2%;
+    margin-left: 10%;
+height: 95vh;
+width: 65vw;
+background: linear-gradient(#FF6E40,#7FE7DC);
+border: 3px solid black;
+display: grid;
+grid-template-columns: repeat(30,1fr);
+grid-template-rows: repeat(25,1fr);
+}
+.text{
+    position: absolute;
+    font-family: 'Reggae One', cursive;if;
+    font-size: 50px;
+    font-weight: 500;
+    font-style: italic;
+    color: rgb(240, 11, 11);
+    top: 20px;
+    right: -425px;
+}
+
+.head{
+    background-color: RED;
+    border: 3px solid black;
+    border-radius: 2px;
+}
+.food{
+    background-color: yellow;
+    border: 2px solid black;
+    border-radius:20px;
+}
+.tail{
+    background-color: black;
+    border: 2px solid yellow;
+    border-radius: 10px;
+}
+#scoreBox{
+    position: absolute;
+    top: 110px;
+    right: -335px;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'KoHo', sans-serif;
+    border: 5px solid black;
+    background: linear-gradient(#FFE042,#E71989);
+    border-radius: 10PX;
+}

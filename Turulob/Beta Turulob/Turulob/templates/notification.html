@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+
+
+
+{% block head %}
+<style>
+  .alert {
+    margin: 0px 0px;
+  }
+
+  #notifications {
+    border-bottom: 4px solid rgb(247, 62, 133);
+
+  }
+
+  .notifications1 {
+    text-decoration: none;
+    justify-content: stretch;
+  }
+
+  .notifications1 p {
+    text-align: right;
+    
+    /* border-bottom: 4px solid rgb(247, 62, 133); */
+
+  }
+  #nilesh1{
+    width:100%;
+  }
+  #like{
+      background-color:rgb(255, 200, 210);
+      border-bottom:3px solid rgb(248, 142, 186)
+  }
+  #superlike{
+    background-color:rgb(252, 201, 225);
+    border-bottom:3px solid rgb(248, 123, 175)
+
+  }
+  #post{
+    background-color:rgb(187, 182, 255);
+    border-bottom:3px solid rgb(140, 73, 248)
+
+  }
+  #login{
+    border-bottom:3px solid rgba(145, 192, 255, 0.568)
+
+  }
+</style>
+{% endblock %}
+
+
+
+
+{% block home %} active {% endblock %}
+
+
+{% block body1 %}
+<div id="nilesh1">
+  {% for noti in notification %}
+  {% if noti.type=='post' %}
+  <a  class="notifications1" href="/">
+    <div id="post" class="alert alert-info " role="alert">
+      <strong>{{noti.title}}!</strong> {{noti.text}}
+      <p>{{noti.ntime}}</p>
+    </div>
+  </a>
+    {% elif noti.type=="login" %}
+    <a   class="notifications1" href="/">
+      <div id="login" class="alert alert-info " role="alert">
+        <strong>{{noti.title}}!</strong> {{noti.text}}
+        <p>{{noti.ntime}}</p>
+      </div>
+    </a>
+    {% elif noti.type=="superlike" %}
+    <a  class="notifications1" href="/">
+      <div id="superlike" class="alert alert-info " role="alert">
+        <strong>{{noti.title}}!</strong> {{noti.text}}
+        <p>{{noti.ntime}}</p>
+      </div>
+    </a>
+    {% elif noti.type=="like" %}
+    <a  class="notifications1" href="/">
+      <div id="like" class="alert alert-info " role="alert">
+        <strong>{{noti.title}}!</strong> {{noti.text}}
+        <p>{{noti.ntime}}</p>
+      </div>
+    </a>
+  {% endif %}
+  {% endfor %}
+</div>
+{% endblock %}
+
+

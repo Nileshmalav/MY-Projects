@@ -1,0 +1,388 @@
+/* root */
+* {
+    font-family: 'Girassol', cursive;
+    /*--navBackgroundColour: rgba(29, 29, 29, 0.91);*/
+    --navBackgroundColour: rgba(29, 29, 29, 0.747);
+    --navBackgroundColour2: rgb(68, 67, 67);
+    --navFontColour: white;
+    margin: 0px 0px;
+    padding: 0px 0px;
+}
+
+/* root */
+
+/* body  */
+body {
+    margin: 0px;
+    overflow-x: hidden;
+    /* width:100%; */
+
+}
+
+/* body  */
+
+
+/* header */
+header {
+    z-index: 1;
+}
+
+.dNavVisible::before {
+    content: "";
+    background-color: var(--navBackgroundColour);
+    height: 50px;
+    width: 100%;
+    /*display:block;*/
+    position: fixed;
+    color: var(--navFontColour);
+    z-index: -1;
+    opacity: 1;
+}
+
+.dNavVisible {
+    background-color: var(--navBackgroundColour);
+    display: flex;
+
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 50px;
+    justify-content: space-between;
+}
+
+.dNavVisible {
+    width: 100%;
+    /* position: sticky; */
+    z-index: 1;
+}
+
+.dNavVisible [data-aos] {
+    pointer-events: none;
+}
+
+.dNavVisible [data-aos].aos-animate {
+    pointer-events: auto;
+}
+
+.dlogo {
+    padding: 2px 20px;
+    font-size: 35px;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+}
+
+#dnmenu {
+    margin: 5px 10px;
+    font-size: 20px;
+    display: flex;
+}
+
+.header {
+    display: none;
+
+}
+
+.dheader {
+    display: none;
+    background-image: url(../images/header.png);
+    background-repeat: repeat;
+    width: 100%;
+    position: fixed;
+    top: 50px;
+    min-height: 160px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    left: 0px;
+    z-index: 10;
+    background-color: var(--navBackgroundColour2);
+}
+
+#dnavmenu {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    overflow-x: visible;
+}
+
+.dnmenu {
+    padding: 0px 0px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    overflow-x: visible;
+
+}
+
+.dmenu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    overflow-x: visible;
+
+
+}
+
+/*menubar icon*/
+
+
+.menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    padding: 22px 20px;
+    user-select: none;
+}
+
+.menu-icon .navicon {
+    background: white;
+    display: block;
+    height: 2.8px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 25px;
+    overflow-x: visible;
+
+}
+
+.menu-icon .navicon:before,
+.menu-icon .navicon:after {
+    background: white;
+    content: '';
+    color: white;
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+    overflow-x: visible;
+
+}
+
+.menu-icon .navicon:before {
+    top: 10px;
+    overflow-x: visible;
+
+}
+
+.menu-icon .navicon:after {
+    top: -10px;
+    overflow-x: visible;
+
+}
+
+/*menubar icon*/
+.menu-btn {
+    display: none;
+    overflow-x: visible;
+
+}
+
+.menu-btn:checked~.menu {
+    max-height: 300px;
+    overflow-x: visible;
+
+}
+
+.menu-btn:checked~.menu-icon .navicon {
+    background: transparent;
+    overflow-x: visible;
+
+}
+
+.menu-btn:checked~.dheader {
+    display: flex;
+    padding: 0px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: visible;
+
+}
+
+.menu-btn:checked~.menu-icon .navicon:before {
+    transform: rotate(-45deg);
+    overflow-x: visible;
+
+}
+
+.menu-btn:checked~.menu-icon .navicon:after {
+    transform: rotate(45deg);
+    overflow-x: visible;
+
+}
+
+.menu-btn:checked~.menu-icon:not(.steps) .navicon:before,
+.menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
+    top: 0;
+    overflow-x: visible;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.dnavitem a {
+    text-decoration: none;
+    font-size: 25px;
+    padding: 5px 20px;
+    color: var(--navFontColour);
+    width: 100%;
+}
+
+.dnavitem {
+    padding: 5px 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.dright {
+    padding: 10px 25px;
+    align-items: center;
+    text-align: center;
+}
+
+#dnavBtn {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px 20px;
+    margin: 20px 20px;
+    font-size: 25px;
+    text-align: center;
+    margin: auto;
+}
+
+#dnavBtn a {
+    color: black;
+    text-decoration: none;
+}
+
+.dnavitem:hover,
+.dnavitem a:hover {
+    background-color: red;
+}
+
+#dnavBtn:hover {
+    background-color: aqua;
+    /* font-size: 28px; */
+}
+
+
+
+/* header */
+
+
+
+
+
+/* footer  */
+.footer {
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(29, 29, 29, 0.94);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    background-image: url(../images/header.png);
+    background-repeat: repeat;
+    overflow: hidden;
+
+}
+
+.footerimg {
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 5%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.footerimg a :hover {
+    text-decoration: none;
+    color: rgb(116, 116, 117);
+    overflow: hidden;
+
+}
+
+@media(max-width:450px) {
+    .footerimg {
+        justify-content: space-between;
+        align-items: center;
+        padding: 1% 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+
+    }
+
+
+}
+
+.footerimg a {
+    text-decoration: none;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.footerimg img {
+    height: 120px;
+    overflow: hidden;
+
+
+}
+
+.footerimgtext {
+    font-size: 30px;
+    color: #6c6868;
+    overflow: hidden;
+
+
+}
+
+.fdiv {
+    padding: 10px;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    overflow: hidden;
+
+}
+
+.headerbox {
+    width: 100%;
+    height: 50px;
+    display: block;
+    position: relative;
+}
+
+/* footer  */

@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.jpg') }}">
+
+
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/layout.css') }}">
+    {% block head %}
+
+    {% endblock %}
+</head>
+
+<body>
+
+    {% block scripts %}
+
+    {% endblock %}
+
+
+    <div class="navigation">
+        <div class="navigationt">
+            <div id="logo">Turu <span class="material-icons">
+                    favorite_border
+                </span> Lob</div>
+            <div id="nav1right">
+
+                <a id="home" href="/"><span class="material-icons">
+                        home
+                    </span></a>
+
+                <a id="swipeandmatch" href="/swipematch">
+                    <img src="https://img.icons8.com/color-glass/48/000000/two-hearts.png" />
+                </a>
+
+                <a id="messenger" href="/chats"><button type="button" class="btn btn position-relative">
+                        <div>
+                            <img src="https://img.icons8.com/ios/50/000000/facebook-messenger--v4.png" />
+                            <span
+                                class="position-absolute top-10 start-95 translate-middle p-2 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+
+                        </div>
+                    </button>
+                </a>
+
+                <a id="notifications" href="/notifications"><button type="button" class="btn btn position-relative">
+                        <div>
+
+                            <span class="material-icons">
+                                notifications
+                            </span>
+                            <span
+                                class="position-absolute top-15 start-80 translate-middle p-2 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </div>
+                    </button>
+                </a>
+
+                <a href="/search" id="search">
+                    <span class="material-icons">
+                        search
+                    </span>
+
+                </a>
+
+                <div class="dropdown">
+                    <a class="btn btn " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
+                        >
+                        <img id="profileimg" class="material-icons" src="/profile/images/{{username}}">
+                    </a>
+                    
+                    <div class="offcanvas offcanvas-end" tabsno="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasRightLabel">{{username}}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+
+                            <a id="offcanvas-a" href="/{{username}}/profile"><span class="material-icons">
+                                account_circle
+                            </span>Profile</a>
+
+                            <a id="offcanvas-a" href="/myVideos"><span class="material-icons">
+                                video_library
+                            </span>Videos</a>
+                            
+                            
+                            <a id="offcanvas-a" href="/mylikes"><span class="material-icons">
+                                favorite
+                            </span>Likes</a>
+
+                            <a id="offcanvas-a" href="/saved"><span class="material-icons">
+                                bookmark
+                            </span>Favorite</a>
+
+                            <a id="offcanvas-a" href="/shedule"><span class="material-icons">
+                                today
+                            </span>Shedule</a>
+
+                            <a id="offcanvas-a" href="/settings"><span class="material-icons">
+                                settings
+                            </span>Settings</a>
+
+                            <a id="offcanvas-a" href="/turulob/more"><span class="material-icons">
+                                more
+                            </span>More</a>
+
+                            <a id="offcanvas-a" href="/logout"><span class="material-icons">
+                                logout
+                            </span>Logout</a>
+
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <hr>
+
+    <div class="main">
+
+        <div class="grid-item1">
+            {% block body1 %}
+
+            {% endblock %}
+
+
+        </div>
+        <div class="grid-item2">
+            <div>
+                <div class="grid2-option">
+                    <button>
+                        <span class="material-icons">
+                            video_library
+                        </span> Videos
+                    </button>
+                    <button>
+                        <span class="material-icons">
+                            favorite
+                        </span>
+                        Superlikes
+                    </button>
+                    <button>
+                        <span class="material-icons">
+                            bookmark
+                        </span>
+                        Saved
+                    </button>
+                    <button>
+                        <span class="material-icons">
+                            event
+                        </span>
+                        Shedule
+                    </button>
+                    <button>
+                        <span class="material-icons">
+                            more_horiz
+                        </span>
+                        More
+                    </button>
+                </div>
+                {% block body2 %}
+
+                {% endblock %}
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    </div>
+
+    <div>
+        <button onclick="document.getElementById('PostAddForm').style.display='block'" id="addPost" type="button"
+            class="btn btn-primary">
+            <span class="material-icons"> add</span>
+        </button>
+        <div id="PostAddForm" class="w3-modal">
+            <div class="w3-modal-content w3-animate-top w3-card-4">
+                <header class="w3-container w3">
+                    <span onclick="document.getElementById('PostAddForm').style.display='none'"
+                        class="w3-button w3-display-topright">&times;</span>
+                    <h2>Add Post</h2>
+                </header>
+                <div id="addForm">
+                    <div>
+                        <img id="imgPreview" src="" alt="">
+                    </div>
+                    <form action="/posts/images" method="POST" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="formimage" class="form-label">image</label>
+                            <input accept="image/* , video/*" type="file" name="pic" class="form-control"
+                                id="formimage">
+                        </div>
+                        <div class="mb-3">
+                            <label for="text">Text:</label>
+                            <textarea class="form-control" name="text" rows="6" id="text"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(() => {
+            $('#formimage').change(function () {
+                const file = this.files[0];
+                console.log(file);
+                if (file) {
+                    let reader = new FileReader();
+                    reader.onload = function (event) {
+                        console.log(event.target.result);
+                        $('#imgPreview').attr('src', event.target.result);
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

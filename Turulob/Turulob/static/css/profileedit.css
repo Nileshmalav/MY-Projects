@@ -1,0 +1,29 @@
+.formdiv {
+    padding: 35px;
+}
+
+#form {
+    /* float: right; */
+    width: 100%;
+    max-width: 500px;
+}
+img{
+    border-radius: 10000px;
+    width:250px;
+    height:250px;
+    margin: 25px;
+}
+#imageedit{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+}
+#imageedit button{
+    margin:25px;
+}
+h1{
+    margin:25px;
+}
+.main{
+    width:100vh;
+}

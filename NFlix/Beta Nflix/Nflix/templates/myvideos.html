@@ -1,0 +1,222 @@
+<!-- home page where Recomodation is shown html file   -->
+{% extends "layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/home.css') }}">
+{% endblock %}
+
+{% block body %}
+
+        <!-- content Recomodation -->
+        {% if liked %}
+        <h2 class="content-title">Liked</h2>
+        <div class="content">
+            {% for movie in liked %}
+            {% if movie.type=="l" %}
+            <div class="movies">
+
+                <div onclick="document.getElementById('{{movie['movie_index']}}').style.display='block'"
+                    id="movie{{movie['movie_index']}}" class="movie">
+                    <img src="{{movie.Poster_Url}}" alt="">
+                    <h4>{{movie.name}}</h4>
+
+                </div>
+
+                <div id="{{movie['movie_index']}}" class="w3-modal">
+                    <div class="w3-modal-content w3-card-4">
+                        <header class="w3-container w3-red">
+                            <span onclick="document.getElementById('{{movie['movie_index']}}').style.display='none'"
+                                class="w3-button w3-large w3-display-topright">&times;</span>
+                            <h2>{{movie.name}}</h2>
+                        </header>
+                        <div class="w3-container">
+                            <div class="imgagediv">
+                                <img src="{{movie.Poster_Url}}">
+                                <div>
+                                    <p> <b>Release Date</b> {{movie.Release_Date}}</p>
+                                    <p> <b>Popularity</b> {{movie.Popularity}}</p>
+                                    <p> <b>Vote Count</b> {{movie.Vote_Count}}</p>
+                                    <p> <b>Vote Average</b> {{movie.Vote_Average}}</p>
+                                    <p> <b>Language</b> {{movie.Original_Language}}</p>
+                                    <p> <b>Genre</b> {{movie.Genre}}</p>
+                                    <p> <b>Overview</b> {{movie.Overview}}</p>
+                                </div>
+                                <div>
+                                    <div class="w3-tooltip">
+                                        <span style="position:absolute;left:30px;bottom:25px"
+                                            class="w3-text w3-tag">like</span>
+                                        <span style="color:white;"  onclick='rate("/rate/l/{{movie['movie_index']}}","like{{movie['movie_index']}}")' id="like{{movie['movie_index']}}" class="material-symbols-outlined">
+                                            thumb_up
+                                        </span>
+                                    </div>
+                                    <div class="w3-tooltip">
+                                        <span style="position:absolute;left:30px;bottom:25px"
+                                            class="w3-text w3-tag">dislike</span>
+                                        <span style="color:white;"  onclick='rate("/rate/u/{{movie['movie_index']}}","unlike{{movie['movie_index']}}")' id="unlike{{movie['movie_index']}}" class="material-symbols-outlined">
+                                            thumb_down
+                                        </span>
+                                    </div>
+                                    <div class="w3-tooltip">
+                                        <span style="position:absolute;left:30px;bottom:25px"
+                                            class="w3-text w3-tag">watched</span>
+                                        <span style="color:white;"  onclick='rate("/rate/w/{{movie['movie_index']}}","watch{{movie['movie_index']}}")' id="watch{{movie['movie_index']}}" class="material-symbols-outlined">
+                                            play_circle
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <footer class="w3-container w3-red">
+                            <p>Movies Recomodation System</p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if disliked %}
+        <h2 class="content-title">UnLiked</h2>
+        <div class="content">
+            {% for movie in disliked %}
+            {% if movie.type=="u" %}
+            <div class="movies">
+
+                <div onclick="document.getElementById('{{movie['movie_index']}}').style.display='block'"
+                    id="movie{{movie['movie_index']}}" class="movie">
+                    <img src="{{movie.Poster_Url}}" alt="">
+                    <h4>{{movie.name}}</h4>
+
+                </div>
+
+                <div id="{{movie['movie_index']}}" class="w3-modal">
+                    <div class="w3-modal-content w3-card-4">
+                        <header class="w3-container w3-red">
+                            <span onclick="document.getElementById('{{movie['movie_index']}}').style.display='none'"
+                                class="w3-button w3-large w3-display-topright">&times;</span>
+                            <h2>{{movie.name}}</h2>
+                        </header>
+                        <div class="w3-container">
+                            <div class="imgagediv">
+                                <img src="{{movie.Poster_Url}}">
+                                <div>
+                                    <p> <b>Release Date</b> {{movie.Release_Date}}</p>
+                                    <p> <b>Popularity</b> {{movie.Popularity}}</p>
+                                    <p> <b>Vote Count</b> {{movie.Vote_Count}}</p>
+                                    <p> <b>Vote Average</b> {{movie.Vote_Average}}</p>
+                                    <p> <b>Language</b> {{movie.Original_Language}}</p>
+                                    <p> <b>Genre</b> {{movie.Genre}}</p>
+                                    <p> <b>Overview</b> {{movie.Overview}}</p>
+                                </div>
+                                <div>
+                                    <div class="w3-tooltip">
+                                        <span style="position:absolute;left:30px;bottom:25px"
+                                            class="w3-text w3-tag">like</span>
+                                        <span style="color:white;"  onclick='rate("/rate/l/{{movie['movie_index']}}","like{{movie['movie_index']}}")' id="like{{movie['movie_index']}}" class="material-symbols-outlined">
+                                            thumb_up
+                                        </span>
+                                    </div>
+                                    <div class="w3-tooltip">
+                                        <span style="position:absolute;left:30px;bottom:25px"
+                                            class="w3-text w3-tag">dislike</span>
+                                        <span style="color:white;"  onclick='rate("/rate/u/{{movie['movie_index']}}","unlike{{movie['movie_index']}}")' id="unlike{{movie['movie_index']}}" class="material-symbols-outlined">
+                                            thumb_down
+                                        </span>
+                                    </div>
+                                    <div class="w3-tooltip">
+                                        <span style="position:absolute;left:30px;bottom:25px"
+                                            class="w3-text w3-tag">watched</span>
+                                        <span style="color:white;"  onclick='rate("/rate/w/{{movie['movie_index']}}","watch{{movie['movie_index']}}")' id="watch{{movie['movie_index']}}" class="material-symbols-outlined">
+                                            play_circle
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <footer class="w3-container w3-red">
+                            <p>Movies Recomodation System</p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if watched %}
+
+        <h2 class="content-title">Watched</h2>
+        <div class="content">
+            {% for movie in watched %}
+            {% if movie.type=="w" %}
+            <div class="movies">
+
+                <div onclick="document.getElementById('{{movie['movie_index']}}').style.display='block'"
+                    id="movie{{movie['movie_index']}}" class="movie">
+                    <img src="{{movie.Poster_Url}}" alt="">
+                    <h4>{{movie.name}}</h4>
+
+                </div>
+
+                <div id="{{movie['movie_index']}}" class="w3-modal">
+                    <div class="w3-modal-content w3-card-4">
+                        <header class="w3-container w3-red">
+                            <span onclick="document.getElementById('{{movie['movie_index']}}').style.display='none'"
+                                class="w3-button w3-large w3-display-topright">&times;</span>
+                            <h2>{{movie.name}}</h2>
+                        </header>
+                        <div class="w3-container">
+                            <div class="imgagediv">
+                                <img src="{{movie.Poster_Url}}">
+                                <div>
+                                    <p> <b>Release Date</b> {{movie.Release_Date}}</p>
+                                    <p> <b>Popularity</b> {{movie.Popularity}}</p>
+                                    <p> <b>Vote Count</b> {{movie.Vote_Count}}</p>
+                                    <p> <b>Vote Average</b> {{movie.Vote_Average}}</p>
+                                    <p> <b>Language</b> {{movie.Original_Language}}</p>
+                                    <p> <b>Genre</b> {{movie.Genre}}</p>
+                                    <p> <b>Overview</b> {{movie.Overview}}</p>
+                                </div>
+                                <div>
+                                    <div class="w3-tooltip">
+                                        <span style="position:absolute;left:30px;bottom:25px"
+                                            class="w3-text w3-tag">like</span>
+                                        <span style="color:white;"  onclick='rate("/rate/l/{{movie['movie_index']}}","like{{movie['movie_index']}}")' id="like{{movie['movie_index']}}" class="material-symbols-outlined">
+                                            thumb_up
+                                        </span>
+                                    </div>
+                                    <div class="w3-tooltip">
+                                        <span style="position:absolute;left:30px;bottom:25px"
+                                            class="w3-text w3-tag">dislike</span>
+                                        <span style="color:white;"  onclick='rate("/rate/u/{{movie['movie_index']}}","unlike{{movie['movie_index']}}")' id="unlike{{movie['movie_index']}}" class="material-symbols-outlined">
+                                            thumb_down
+                                        </span>
+                                    </div>
+                                    <div class="w3-tooltip">
+                                        <span style="position:absolute;left:30px;bottom:25px"
+                                            class="w3-text w3-tag">watched</span>
+                                        <span style="color:white;"  onclick='rate("/rate/w/{{movie['movie_index']}}","watch{{movie['movie_index']}}")' id="watch{{movie['movie_index']}}" class="material-symbols-outlined">
+                                            play_circle
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <footer class="w3-container w3-red">
+                            <p>Movies Recomodation System</p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+{% endblock %}

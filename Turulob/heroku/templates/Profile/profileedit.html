@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/profileedit.css') }}" />
+
+  <title>Edit Profile</title>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.jpg') }}" />
+
+  <style>
+    #backbutton {
+      border: none;
+    }
+
+    #backbutton span {
+      padding: 7px;
+      margin: 5px;
+      border-radius: 100%;
+      color: white;
+      background-color: blue;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  {% if message %}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>incorrect data</strong> {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endif %} {% if message1 %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>account created successfully!</strong> {{ message1 }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endif %}
+  <button id="backbutton" onclick="history.back()">
+    <span class="material-icons"> arrow_back </span>
+  </button>
+  <h1>Edit Profile</h1>
+  <div class="main">
+    <div id="imageedit">
+      <div>
+        <img src="/profile/images/{{user.username}}" />
+      </div>
+      <a href="/profile/editprofile/image">
+        <button type="button" class="btn btn-info">
+          Change Profile Photo
+        </button>
+      </a>
+    </div>
+    <div class="formdiv">
+      <form id="form" method="post" action="/profile/editprofile">
+        <div class="mb-3">
+          <label for="exampleInput" class="form-label">Username</label>
+          <input type="text" name="username" class="form-control" value="{{user.username}}" id="exampleInput" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInput" class="form-label">First name</label>
+          <input type="text" name="first_name" class="form-control" value="{{user.first_name}}" id="exampleInput" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInput" class="form-label">Last name</label>
+          <input type="text" name="last_name" class="form-control" value="{{user.last_name}}" id="exampleInput" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInput" class="form-label">Email</label>
+          <input type="text" name="email" class="form-control" value="{{user.email}}" id="exampleInput" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInput" class="form-label">phone</label>
+          <input type="text" name="phone" class="form-control" value="{{user.phone}}" id="exampleInput" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInput" class="form-label">intro</label>
+          <textarea type="text" name="intro" class="form-control" value="{{user.intro}}" id="exampleInput">
+{{user.intro}}</textarea>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInput" class="form-label">Gender</label>
+          <select name="gender" class="form-select form-select-sm" value="{{user.gender}}"
+            aria-label=".form-select-sm example">
+            {% if user.gender=="Female" %}
+            <option value="Male">Male</option>
+            <option selected value="Female">Female</option>
+
+            {% else %}
+
+            <option selected value="Male">Male</option>
+            <option value="Female">Female</option>
+            {% endif %}
+            <!-- <option selected>Gender</option> -->
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInput" class="form-label">age</label>
+          <input name="age" type="number" class="form-control" value="{{user.age}}" id="exampleInput" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInput" class="form-label">Instagram</label>
+          <input name="instagram" type="text" class="form-control" value="{{user.instagram}}" id="exampleInput" />
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInput" class="form-label">Facebook</label>
+          <input name="facebook" type="text" class="form-control" value="{{user.facebook}}" id="exampleInput" />
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInput" class="form-label">Country</label>
+          <select name="locationCountry" type="text" class="form-control" value="{{user.location_Country}}"
+            id="exampleInput" required>
+            <option selected value="{{user.location_Country}}">
+              {{user.location_Country}}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInput" class="form-label">State</label>
+          <select name="locationState" type="text" class="form-control" value="{{user.location_State}}"
+            id="exampleInput" required>
+            <option selected value="{{user.location_State}}">
+              {{user.location_State}}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInput" class="form-label">City </label>
+          <select name="locationCity" type="text" class="form-control" value="{{user.location_City}}" id="exampleInput"
+            required>
+            <option selected value="{{user.location_City}}">
+              {{user.location_City}}
+            </option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  <script src="{{ url_for('static', filename='javascript/profileedit.js') }}" async></script>
+  <!--for country state city-->
+</body>
+
+</html>

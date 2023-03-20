@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- navigation  -->
+    <link href="CSS/navigation.css" media="screen and (min-width:1150px)" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
+    <link href="CSS/phnavigation.css" media="screen and (max-width:1150px)" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <!-- navigation  -->
+
+    <link href="CSS/help1.css" rel="StyleSheet">
+</head>
+
+<body>
+    <!-- header -->
+    <!-- header straight -->
+    <header class="header" id="header">
+        <div class="logo" id="logo">
+            Covid-19
+        </div>
+        <div class="navmenu" id="navmenu">
+            <ul class="menu">
+                <li class="navitem" id="home"><a href="index.html">Home</a></li>
+                <li class="navitem" id="covidInfo"><a href="covid info.html">Covid Info</a></li>
+                <li class="navitem" id="covidTracker"><a href="https://www.worldometers.info/coronavirus/"
+                        target="blank">Covid Tracker</a></li>
+                <li class="navitem" id="plagam"><a href="play games.html">Play Games</a></li>
+                <li class="navitem" id="help"><a href="help.html">Help</a></li>
+                <!-- <li class="navitem" id="QA"><a href="que ans.html">Q&A</a></li> -->
+                <div class="dropdown" id="more">
+                    <button class="dropbtn">More
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="listen music.html" id="lismus">Listen Music</a>
+                        <a href="movies and shows.html" id="movsho">Movies & shows</a>
+                        <!-- <a href="play games.html" id="plagam">Play Games</a> -->
+                        <a href="que ans.html" id="QA">Q&A</a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+        <div class="right" id="right">
+            <button id="navBtn"><a href="https://www.cowin.gov.in/home" target="blank">Get Vaccine</a></button>
+        </div>
+    </header>
+    <!-- header dropdown -->
+    <div class="dNavVisible">
+
+        <div class="dlogo" id="dlogo">
+            Covid-19
+        </div>
+        <div class="dnmenu">
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+            <header class="dheader" id="dheader">
+
+                <div class="dnavmenu" id="dnavmenu">
+                    <ul class="dmenu">
+                        <li class="dnavitem" id="phome"><a href="index.html">Home</a></li>
+                        <li class="dnavitem" id="pcovidInfo"><a href="covid info.html">Covid Info</a></li>
+                        <li class="dnavitem" id="pcovidTracker"><a href="https://www.worldometers.info/coronavirus/"
+                                target="blank">Covid Tracker</a></li>
+                        <li class="dnavitem" id="pplagam"><a href="play games.html">Play Games</a></li>
+                        <li class="dnavitem" id="phelp"><a href="help.html">Help</a></li>
+                        <li class="dnavitem" id="pQA"><a href="que ans.html">Q & A</a></li>
+                        <li class="dnavitem" id="plismus"><a href="listen music.html">Listen Music</a></li>
+                        <li class="dnavitem" id="pmovsho"><a href="movies and shows.html">Movies & Shows</a></li>
+                    </ul>
+                </div>
+                <div class="dright" id="dright">
+                    <button id="dnavBtn"><a href="https://www.cowin.gov.in/home" target="blank">Get Vaccine</a></button>
+                </div>
+        </div>
+        </header>
+    </div>
+
+    <box class="headerbox"></box>
+    <!-- header -->
+
+</body>
+
+</html>

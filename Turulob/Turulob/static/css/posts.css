@@ -1,0 +1,91 @@
+.post {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-user {
+    display: flex;
+
+}
+
+.post-user :hover {
+    cursor: pointer;
+}
+
+.post-user>div {
+    padding-left: 15px;
+}
+
+.post-user img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+}
+
+.post-user h4 {
+    padding: 0px;
+    margin: 0px;
+    font-size: 22px;
+}
+
+.post-user p {
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    font-size: 16px;
+}
+
+.post-user span {
+    display: flex;
+    align-items: center;
+    padding: 0px 5px;
+    font-size: 18px;
+}
+
+
+.post-content {
+    padding: 25px;
+    padding-bottom: 10px;
+
+}
+
+.post-img {
+    width: 100%;
+    padding: 15px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-options {
+    display: flex;
+    padding: 0px 40px;
+}
+
+.post-options button {
+    margin: 0px 3px;
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 28px;
+    /* border: 3px solid rgb(255, 0, 144); */
+    /* color: rgb(255, 0, 153); */
+    /* background: rgb(253, 229, 233); */
+    border: 0px ;
+    color: rgb(67, 67, 67);
+
+    background-color: rgb(190, 217, 249);
+
+}
+
+.post-options button:hover {
+    background-color: rgb(99, 169, 255);
+}

@@ -1,0 +1,23 @@
+#help {
+    background-color: white;
+}
+
+#help a {
+    color: black;
+}
+
+#help:hover {
+    background-color: red;
+}
+
+#phelp:hover {
+    background-color: red;
+}
+
+#phelp {
+    background-color: white;
+}
+
+#phelp a {
+    color: black;
+}

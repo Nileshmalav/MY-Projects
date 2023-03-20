@@ -1,0 +1,390 @@
+{% extends "./layout.html" %} {% block head %}
+
+
+<title>{{user.username}}</title>
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!-- location  -->
+<script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+<script src="{{ url_for('static', filename='/javascript/location.js') }}"></script>
+<script src="{{ url_for('static', filename='/javascript/distance.js') }}"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/posts.css') }}"> {% endblock %} {% block scripts %}
+<script>
+    function myLike(id, sno) {
+        var x = document.getElementById(id);
+
+        if (x.style.backgroundColor === "rgb(255, 191, 226)") {
+            const url1 = `/user/like`
+            $.ajax({
+                data: {
+                    message: 'liked',
+                    tousersno: sno
+                },
+                url: url1,
+                type: 'POST',
+                success: function(response) {
+                    console.log("liked")
+                    x.style.backgroundColor = "rgb(255, 0, 140)";
+                    console.log("success")
+                },
+                error: function(response) {
+                    console.log("error")
+
+                }
+            });
+
+
+
+
+        } else if (x.style.backgroundColor === "rgb(255, 0, 140)") {
+            const url1 = `/user/like`
+            $.ajax({
+                data: {
+                    message: 'unliked',
+                    tousersno: sno
+                },
+                url: url1,
+                type: 'POST',
+                success: function(response) {
+                    x.style.backgroundColor = "rgb(255, 191, 226)";
+                    console.log("disliked")
+                    console.log("success")
+                },
+                error: function(response) {
+                    console.log("error")
+
+                }
+            });
+
+
+
+        } else {
+            x.style.backgroundColor = "rgb(255, 191, 226)";
+
+        }
+    }
+
+    function mySuperLike(id, sno) {
+        var x = document.getElementById(id);
+        if (x.style.backgroundColor === "rgb(255, 191, 226)") {
+            const url1 = `/user/superlike`
+            $.ajax({
+                data: {
+                    message: 'superliked',
+                    tousersno: sno
+                },
+                url: url1,
+                type: 'POST',
+                success: function(response) {
+                    x.style.backgroundColor = "rgb(255, 0, 140)";
+                    console.log("superliked")
+                    console.log("success")
+                },
+                error: function(response) {
+                    console.log("error")
+
+                }
+            });
+
+
+
+        } else if (x.style.backgroundColor === "rgb(255, 0, 140)") {
+            const url1 = `/user/superlike`
+            $.ajax({
+                data: {
+                    message: 'unsuperliked',
+                    tousersno: sno
+                },
+                url: url1,
+                type: 'POST',
+                success: function(response) {
+                    x.style.backgroundColor = "rgb(255, 191, 226)";
+                    console.log("superdisliked")
+                    console.log("success")
+                },
+                error: function(response) {
+                    console.log("error")
+
+                }
+            });
+
+
+        } else {
+            x.style.backgroundColor = "rgb(255, 191, 226)";
+
+        }
+    }
+
+    function mySave(id, sno) {
+        var x = document.getElementById(id);
+        if (x.style.backgroundColor === "rgb(255, 191, 226)") {
+            const url1 = `/user/save`
+            $.ajax({
+                data: {
+                    message: 'saved',
+                    tousersno: sno
+                },
+                url: url1,
+                type: 'POST',
+                success: function(response) {
+                    x.style.backgroundColor = "rgb(255, 0, 140)";
+                    console.log("saved")
+                    console.log("success")
+                },
+                error: function(response) {
+                    console.log("error")
+
+                }
+            });
+
+
+        } else if (x.style.backgroundColor === "rgb(255, 0, 140)") {
+            const url1 = `/user/save`
+            $.ajax({
+                data: {
+                    message: 'unsaved',
+                    tousersno: sno
+                },
+                url: url1,
+                type: 'POST',
+                success: function(response) {
+                    x.style.backgroundColor = "rgb(255, 191, 226)";
+                    console.log("unsaved")
+                    console.log("success")
+                },
+                error: function(response) {
+                    console.log("error")
+
+                }
+            });
+
+
+        } else {
+            x.style.backgroundColor = "rgb(255, 191, 226)";
+
+        }
+    }
+</script>
+{% endblock %} {% block body1 %}
+<div class="upper">
+    <div class="profileimg">
+        <img src="/profile/images/{{user.username}}" alt="">
+    </div>
+    <div class="info">
+        <div id="info1">
+            <div id="username">{{user.username}} </div>
+            {% if username==user.username %}
+            <a href="/profile/editprofile">
+                <button type="button" class="btn btn-info">edit profile</button>
+            </a>
+
+            {% endif %}
+            <script>
+                jQuery("location{{user.sno}}").ready(function() {
+                    d = getDistance("{{user.latitude}}", "{{user.longitude}}",
+                        "{{me.latitude}}", "{{me.longitude}}")
+                    document.getElementById("location{{user.sno}}")
+                        .innerText = d
+                });
+            </script>
+            <div class="location1"><span class="material-icons">location_on</span>
+                <div id="location{{user.sno}}">
+                </div>
+            </div>
+        </div>
+        <div id="info2">
+            <div id="name">{{user.first_name}} {{user.last_name}} {{user.age}}</div>
+            <div id="location"><span class="material-icons">
+                                        location_on
+                                </span>{{user.location_City}}, {{user.location_State}}, {{user.location_Country}}
+            </div>
+            <div id="intro">{{user.intro}}</div>
+            <div id="symbols">
+                <button onClick="myLike('like{{user.sno}}a','{{user.sno}}')" id="like{{user.sno}}a" type="button" class="btn btn-primary"><span class="material-icons">
+                                                thumb_up_off_alt
+                                        </span></button>
+
+
+
+                <button onClick="mySuperLike('slike{{user.sno}}a','{{user.sno}}')" id="slike{{user.sno}}a" type="button" class="btn btn-primary"><span
+                                                class="material-icons">
+                                                favorite_border
+                                        </span></button>
+
+
+                <button onClick="mySave('save{{user.sno}}a','{{user.sno}}')" id="save{{user.sno}}a" type="button" class="btn btn-primary"><span class="material-icons">
+                                                bookmark
+                                        </span></button>
+                <a href="/chats/{{user.username}}">
+                    <img alt="" src="{{ url_for('static', filename='icons/messenger.png') }}">
+
+                </a>
+
+                <a href="{{user.facebook}}">
+                    <img alt="" src="{{ url_for('static', filename='icons/facebook.png') }}">
+
+                </a>
+                <a href="{{user.instagram}}">
+                    <img alt="" src="{{ url_for('static', filename='icons/instagram.png') }}">
+
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<br> {% if username==user.username %}
+<a href="/profile/{{user.username}}/otherimages">
+    <button id="imgbutton" type="button" class="btn btn-info">Add Images</button>
+</a>
+
+{% endif %}
+
+<div class="lower">
+    {% for image in user.other_profile_Images %}
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="/profile/otherprofileimages/{{image.id}}">
+                <img src="/profile/otherprofileimages/{{image.id}}" alt="">
+            </a>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+<script>
+    function Like(id1, id2, sno) {
+        var x = document.getElementById(id1);
+        var y = document.getElementById(id2);
+        var z = parseInt(y.innerText);
+        console.log(z)
+        if (x.style.backgroundColor === "rgb(255, 159, 212)") {
+            console.log("liked")
+            const url1 = `/posts/like`
+            $.ajax({
+                data: {
+                    message: 'liked',
+                    sno: sno
+                },
+                url: url1,
+                type: 'POST',
+                success: function(response) {
+                    z = z + 1;
+                    y.innerHTML = z;
+                    x.style.backgroundColor = "rgb(255, 0, 140)";
+                    console.log("success")
+                },
+                error: function(response) {
+                    console.log("error")
+
+                }
+            });
+        } else if (x.style.backgroundColor === "rgb(255, 0, 140)") {
+            console.log("disliked")
+            const url1 = `/posts/like`
+            $.ajax({
+                data: {
+                    message: 'unliked',
+                    sno: sno
+                },
+                url: url1,
+                type: 'POST',
+                success: function(response) {
+                    z = z - 1;
+                    y.innerHTML = z;
+                    x.style.backgroundColor = "rgb(255, 159, 212)";
+                    console.log("success")
+                },
+                error: function(response) {
+                    console.log("error")
+
+                }
+            });
+
+
+
+        } else {
+            x.style.backgroundColor = "rgb(255, 159, 212)";
+            console.log("else")
+        }
+    }
+</script>
+{% for post in user.posts %}
+
+<div class="post">
+    <div class="top">
+        <div class="post-user">
+            <img alt="" src="/profile/images/{{post.username}}">
+            <div>
+                <a>
+                    <h4>{{post.name}}</h4>
+                </a>
+                <p>
+                    <span class="material-icons">
+                                                schedule
+                                        </span> {{post.time}}
+                </p>
+            </div>
+        </div>
+        <span class="material-icons">
+                        more_horiz
+                </span>
+    </div>
+    <div class="post-content">
+        <div class="post-text">
+            <h5>
+                {{post.text}}
+
+            </h5>
+        </div>
+        <div class="post-img">
+            <img alt="" src="/posts/images/{{post.id}}">
+        </div>
+
+    </div>
+    <div class="post-options">
+        <div>
+            <button class="material-icons">
+                                favorite_border
+                        </button>
+            <button class="material-icons">
+                                comment
+                        </button>
+            <button class="material-icons">
+                                share
+                        </button>
+
+            <button class="material-icons">
+                                bookmark
+                        </button>
+        </div>
+    </div>
+    <hr>
+</div>
+{% endfor %}
+
+
+<script>
+    function myredirect(myurl) {
+        location.href = myurl;
+    }
+</script>
+
+
+{% endblock %}

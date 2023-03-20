@@ -1,0 +1,216 @@
+* {
+    text-align: center;
+    /* font-family: 'Pattaya', sans-serif; */
+}
+
+/* navigation */
+#movsho {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+
+}
+
+#pmovsho:hover {
+    background-color: red;
+}
+
+#movsho:hover {
+    background-color: rgba(3, 253, 3, 0.75);
+}
+
+#more {
+    background-color: white;
+    color: black;
+
+
+}
+
+#more button {
+    color: black;
+
+}
+
+#pmovsho {
+    background-color: white;
+}
+
+#pmovsho a {
+    color: black;
+}
+
+
+/* navigation */
+
+
+/* section  */
+body {
+    scroll-behavior: smooth;
+    background-image: url('../images/back.gif');
+    background-repeat: repeat;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.lmsection {
+    border: 2px solid grey;
+    text-align: center;
+    padding: 20px;
+    flex-wrap: wrap;
+    /* display: flex; */
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Pattaya', sans-serif;
+    background-color: rgba(255, 255, 255, 0.671);
+    overflow-x: hidden;
+    /* z-index: -1; */
+
+}
+
+@media (min-width:1150px) {
+
+
+    .lmsection {
+        display: grid;
+        grid-template-areas:
+            'secimg lmh1 lmh1'
+            'secimg lmh1 lmh1'
+            'secimg lmh1 lmh1'
+            'secimg lmbtn lmbtn'
+            'secimg lmbtn lmbtn'
+            'secimg lmbtn lmbtn';
+
+        width: 100%;
+        border: 2px solid gray;
+        border-left: 0px;
+        border-right: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+
+    }
+}
+
+.lmh1 {
+    grid-area: lmh1;
+    overflow-x: hidden;
+}
+
+.secimg {
+    grid-area: secimg;
+    overflow-x: hidden;
+}
+
+.lmbtn {
+    grid-area: lmbtn;
+    overflow-x: hidden;
+}
+
+.lmsection img {
+    /* margin: 30px; */
+    padding: 10%;
+    /* height:33%; */
+    width: 75%;
+    overflow-x: hidden;
+    /* width:auto; */
+}
+
+.lmbtn {
+    padding: 5px 20px;
+    margin: 10px auto;
+    text-align: center;
+    text-align: center;
+    border-radius: 10px;
+    /* font-size: 30px; */
+    background-color: red;
+    cursor: pointer;
+    overflow-x: hidden;
+
+}
+
+.lmbtn a {
+    font-size: 35px;
+    text-decoration: none;
+    color: white;
+    overflow-x: hidden;
+
+
+}
+
+#lmsection1 .lmbtn {
+    background-color: blue;
+    overflow-x: hidden;
+}
+
+#lmsection2 .lmbtn {
+    background-color: red;
+    overflow-x: hidden;
+}
+
+#lmsection3 .lmbtn {
+    background-color: red;
+    overflow-x: hidden;
+}
+
+#lmsection4 .lmbtn {
+    background-color: rgb(0, 153, 255);
+    overflow-x: hidden;
+}
+
+#lmsection5 .lmbtn {
+    background-color: rgb(46, 4, 161);
+    overflow-x: hidden;
+}
+
+#lmsection6 .lmbtn {
+    background-color: red;
+    overflow-x: hidden;
+}
+
+#lmsection7 .lmbtn {
+    background-color: rgb(0, 153, 255);
+    overflow-x: hidden;
+}
+
+#lmsection8 .lmbtn {
+    background-color: green;
+    overflow-x: hidden;
+}
+
+#lmsection9 .lmbtn {
+    background-color: blue;
+    overflow-x: hidden;
+}
+
+.lmbtn a:hover {
+    color: rgb(243, 239, 3);
+    font-size: 40px;
+    overflow-x: hidden;
+}
+
+
+.lmh1 {
+    font-size: 2.8rem;
+    font-family: 'Pattaya', sans-serif;
+    overflow-x: hidden;
+}
+
+.lmh0 {
+    font-size: 3rem;
+    padding: 15px 5px;
+    text-align: center;
+    color: rgb(153, 0, 255);
+    font-family: 'Pattaya', sans-serif;
+    overflow-x: hidden;
+}
+
+.lmh-1 {
+    font-size: 3.2rem;
+    padding: 15px 5px;
+    text-align: center;
+    color: rgb(1, 1, 63);
+    font-family: 'Pattaya', sans-serif;
+    overflow-x: hidden;
+}
+
+/* section  */

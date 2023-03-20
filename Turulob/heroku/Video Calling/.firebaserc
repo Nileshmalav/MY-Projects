@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "stellar-equator-314904",
+    "staging": "stellar-equator-314904"
+  },
+  "targets": {}
+}

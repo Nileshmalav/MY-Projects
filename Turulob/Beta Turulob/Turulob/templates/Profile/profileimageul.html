@@ -1,0 +1,49 @@
+{% extends "./layout.html" %}
+
+ {% block head %}
+ <title>profile image upload</title>
+<style>
+.mydiv{
+  padding:10px;
+}
+.mydiv img{
+  max-width:600px;
+  max-height:600px;
+}
+</style>
+
+ {% endblock %}
+
+  {% block body1 %}
+
+  <div class="mydiv">
+      <h1>profile image upload</h1>
+        <form action="/profile/editprofile/image" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <div>
+                  <img id="imgPreview" src="" alt="">
+              </div>
+                <input id="formimage" accept="image/*" type="file" name="pic" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <script>
+      $(document).ready(() => {
+          $('#formimage').change(function() {
+              const file = this.files[0];
+              console.log(file);
+              if (file) {
+                  let reader = new FileReader();
+                  reader.onload = function(event) {
+                      console.log(event.target.result);
+                      $('#imgPreview').attr('src', event.target.result);
+                  }
+                  reader.readAsDataURL(file);
+              }
+          });
+      });
+  </script>
+ {% endblock %}
+  </body>
+</html>

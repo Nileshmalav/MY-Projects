@@ -1,0 +1,258 @@
+{% extends "layout.html" %}
+
+
+{% block head %}
+<style>
+  #home {
+    border-bottom: 4px solid rgb(247, 62, 133);
+  }
+</style>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/posts.css') }}" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+<!-- location  -->
+<script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+<script src="{{ url_for('static', filename='/javascript/location.js') }}"></script>
+<script src="{{ url_for('static', filename='/javascript/distance.js') }}"></script>
+<!-- location  -->
+
+<title>Turu Lob</title>
+
+{% endblock %}
+
+
+
+
+
+{% block scripts %}
+
+<script>
+  function Like(id1, id2, sno) {
+    var x = document.getElementById(id1);
+    var y = document.getElementById(id2);
+    var z = parseInt(y.innerText);
+    console.log(z);
+    if (x.style.backgroundColor === "rgb(255, 159, 212)") {
+      console.log("liked");
+      const url1 = `/posts/like`;
+      $.ajax({
+        data: {
+          message: "liked",
+          sno: sno,
+        },
+        url: url1,
+        type: "POST",
+        success: function (response) {
+          z = z + 1;
+          y.innerHTML = z;
+          x.style.backgroundColor = "rgb(255, 0, 140)";
+          console.log("success");
+        },
+        error: function (response) {
+          console.log("error");
+        },
+      });
+    } else if (x.style.backgroundColor === "rgb(255, 0, 140)") {
+      console.log("disliked");
+      const url1 = `/posts/like`;
+      $.ajax({
+        data: {
+          message: "unliked",
+          sno: sno,
+        },
+        url: url1,
+        type: "POST",
+        success: function (response) {
+          z = z - 1;
+          y.innerHTML = z;
+          x.style.backgroundColor = "rgb(255, 159, 212)";
+          console.log("success");
+        },
+        error: function (response) {
+          console.log("error");
+        },
+      });
+    } else {
+      x.style.backgroundColor = "rgb(255, 159, 212)";
+      console.log("else");
+    }
+  }
+</script>
+
+<script>
+  function myredirect(myurl) {
+    location.href = myurl;
+  }
+</script>
+
+{% endblock %}
+
+
+{% block body1 %}
+
+{% for post in posts %}
+<div class="post">
+  <div class="top">
+    <div class="post-user">
+      <img src="/profile/images/{{post.username}}">
+      <div>
+        <a>
+          <h4>{{post.name}}</h4>
+        </a>
+        <p>
+          <span class="material-icons">
+            schedule
+          </span>
+          {{post.time}}
+        </p>
+      </div>
+    </div>
+    <span class="material-icons">
+      more_horiz
+    </span>
+  </div>
+  <div class="post-content">
+    <div class="post-text">
+      <h5>
+        {{post.text}}
+
+      </h5>
+    </div>
+    <div class="post-img">
+      <img src="/posts/images/{{post.id}}">
+    </div>
+
+  </div>
+  <div class="post-options">
+    <div>
+      <button class="material-icons">
+        favorite_border
+      </button>
+      <button class="material-icons">
+        comment
+      </button>
+      <button class="material-icons">
+        share
+      </button>
+
+      <button class="material-icons">
+        bookmark
+      </button>
+    </div>
+  </div>
+  <hr>
+</div>
+{% endfor %}
+
+{% endblock %}
+
+
+
+{% block body2 %}
+<div class="suggestions">
+  <div class="sd-title">
+      <h3 class="">
+          Suggestions
+      </h3>
+  </div>
+  <div class="suggestions-list">
+      <div class="suggestion-usd">
+          <img src="https://gambolthemes.net/workwise-new/images/resources/s1.png" class="snip-img">
+          <div class="sgt-text">
+              <h4 class="">
+                  Jessica William
+              </h4>
+              <span class="">
+                  Graphic Designer
+              </span>
+          </div>
+          <span class="material-icons">
+              chat_bubble_outline
+
+          </span>
+      </div>
+      <div class="suggestion-usd">
+          <img src="https://gambolthemes.net/workwise-new/images/resources/s2.png" class="snip-img">
+          <div class="sgt-text">
+              <h4 class="">
+                  John Doe
+              </h4>
+              <span class="">
+                  PHP Developer
+              </span>
+          </div>
+          <span class="material-icons">
+              chat_bubble_outline
+
+          </span>
+      </div>
+      <div class="suggestion-usd">
+          <img src="https://gambolthemes.net/workwise-new/images/resources/s3.png" class="snip-img">
+          <div class="sgt-text">
+              <h4 class="">
+                  Poonam
+              </h4>
+              <span class="">
+                  Wordpress Developer
+              </span>
+          </div>
+          <span class="material-icons">
+              chat_bubble_outline
+
+          </span>
+      </div>
+      <div class="suggestion-usd">
+          <img src="https://gambolthemes.net/workwise-new/images/resources/s4.png" class="snip-img">
+          <div class="sgt-text">
+              <h4 class="">
+                  Bill Gates
+              </h4>
+              <span class="">
+                  C &amp; C++ Developer
+              </span>
+          </div>
+          <span class="material-icons">
+              chat_bubble_outline
+
+          </span>
+      </div>
+      <div class="suggestion-usd">
+          <img src="https://gambolthemes.net/workwise-new/images/resources/s5.png" class="snip-img">
+          <div class="sgt-text">
+              <h4 class="">
+                  Jessica William
+              </h4>
+              <span class="">
+                  Graphic Designer
+              </span>
+          </div>
+          <span class="material-icons">
+              chat_bubble_outline
+
+          </span>
+      </div>
+      <div class="suggestion-usd">
+          <img src="https://gambolthemes.net/workwise-new/images/resources/s6.png" class="snip-img">
+          <div class="sgt-text">
+              <h4 class="">
+                  John Doe
+              </h4>
+              <span class="">
+                  PHP Developer
+              </span>
+          </div>
+          <span class="material-icons">
+              chat_bubble_outline
+          </span>
+      </div>
+      <div class="view-more">
+          <a href="#" class="snip-a">
+              View More
+          </a>
+      </div>
+  </div>
+</div>
+{% endblock %}

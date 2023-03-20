@@ -1,0 +1,124 @@
+#myInput {
+    margin: 20px;
+    border: 2px solid rgb(0, 162, 255);
+    border-radius: 15px;
+    padding: 7px 10px;
+    font-size: 17px;
+    width: 90%;
+    outline: none;
+}
+
+#myInput :focus {
+    border: 2px solid rgb(4, 18, 214);
+
+}
+
+li img {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    border: 1px solid rgb(105, 105, 105);
+
+}
+
+li {
+    list-style-type: none;
+    display: flex;
+    width: 100%;
+    padding: 5px 25px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(207, 207, 207);
+}
+
+li a {
+    text-decoration: none;
+}
+
+#dprofile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+#pbtn {
+    display: flex;
+    flex-direction: row;
+}
+
+#pbtn a {
+    border-radius: 100%;
+}
+
+#pbtn button {
+    border-radius: 100%;
+    padding: 10px;
+    margin: 1px;
+}
+
+#profile {
+    display: flex;
+}
+
+#username {
+    padding: 0px 5px;
+    color: rgb(136, 1, 91);
+    display:flex;
+}
+
+#location {
+    padding: 0px 5px;
+    color: rgb(90, 90, 90)
+}
+
+#name {
+    padding: 0px 5px;
+    color: rgb(1, 1, 53);
+
+}
+
+#searchbar {
+    display: flex;
+    align-items: center;
+}
+
+#searchbar button {
+    color: white;
+    background-color: rgba(0, 25, 253, 0.959);
+    border-radius: 100%;
+    padding: 7px;
+    margin: 5px;
+    border: none;
+    align-items: center;
+    font-size: 19px;
+}
+
+#searchbar button:hover {
+    background-color: rgba(0, 80, 253, 0.959);
+
+}
+
+#searchbar span {
+    font-size: 28px;
+}
+
+.location1{
+    display:flex;
+    color: blue;
+    margin-left: 5px;
+}
+
+
+
+@media (max-width:650px) {
+    .nlist {
+        display: block;
+    }
+
+    #pbtn {
+        align-items: center;
+        justify-content: center;
+
+    }
+}
